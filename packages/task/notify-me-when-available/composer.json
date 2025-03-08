@@ -1,0 +1,14 @@
+{
+    "name": "task/notify-me-when-available",
+    "autoload": {
+        "psr-4": {
+            "Task\\NotifyMeWhenAvailable\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fakhr"
+        }
+    ],
+    "require": {}
+}
