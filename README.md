@@ -19,7 +19,7 @@
 ### Step 1: Clone the Repository
 
 ```sh
- git clone https://github.com/your-repository/notify-me-when-available.git
+ git clone https://github.com/FakhrCloudSecrets/notify-me-when-available.git
  cd notify-me-when-available
 ```
 
@@ -27,7 +27,6 @@
 
 ```sh
 composer install
-npm install && npm run dev
 ```
 
 ### Step 3: Set Up Environment
@@ -46,17 +45,6 @@ php artisan key:generate
 
 ### Step 5: Configure Database
 
-In `.env`, set up your database credentials:
-
-```ini
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=your_database_name
-DB_USERNAME=root
-DB_PASSWORD=your_password
-```
-
 Then run:
 
 ```sh
@@ -67,8 +55,8 @@ This will create tables and seed them with:
 
 - **Products (5 sample products)**
 - **Two users:**
-  - **Admin:** `admin@example.com` / `password`
-  - **Client:** `client@example.com` / `password`
+  - **Admin:** `admin@notifyme.com` / `password`
+  - **User:** `user@notifyme.com` / `password`
 
 ### Step 6: Configure Mailtrap (For Email Notifications)
 
@@ -152,5 +140,5 @@ This project is open-source under the **MIT License**.
 
 ## Author
 
-Developed by **Your Name**. Reach out at [your-email@example.com](mailto\:your-email@example.com).
+Developed by **Mohamed Fakhr**. Reach out at [your-email@example.com](mailto\:your-email@example.com).
 
