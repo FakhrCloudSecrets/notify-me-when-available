@@ -12,13 +12,14 @@ class NotifyController extends Controller
     {
         //
     }
-    
+
     public function create(NotifyCreateRequest $request)
     {
-        $products = $this->notifyRepositories->create([
+        $this->notifyRepositories->create([
+            'user_id' => $request->user_id,
             'product_id' => $request->product_id
         ]);
 
-        return view('notify-me-when-available::product')->with('products', $products);
+        return redirect()->route('product.index');
     }
 }

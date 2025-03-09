@@ -1,58 +1,55 @@
-<!DOCTYPE html>
-<html>
+@extends('notify-me-when-available::layout')
 
-<head>
-  <style>
-    .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 300px;
-      margin: 15px;
-      text-align: center;
-      font-family: arial;
-      width: -webkit-fill-available;
-    }
+@section('content')
+<div class="container">
+    <h1 class="text-center fw-bold my-4">Products</h1>
+    
+    <div class="row">
+        @foreach($products as $product)
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h2 class="card-title">{{ $product->name }}</h2>
+                    <p class="text-muted fs-5">Price: ${{ $product->price }}</p>
+                    <p class="text-muted fs-6">Qty: {{ $product->quantity }}</p>
 
-    .price {
-      color: grey;
-      font-size: 22px;
-    }
+                    @if($product->quantity > 0)
+                    <button class="btn btn-success w-100">Add to Cart</button>
+                    @else
+                    <button class="btn btn-dark w-100 notify-btn" data-product-id="{{ $product->id }}">Notify Me</button>
+                    @endif
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 
-    .card button {
-      border: none;
-      outline: 0;
-      padding: 12px;
-      color: white;
-      background-color: green;
-      text-align: center;
-      cursor: pointer;
-      width: 100%;
-      font-size: 18px;
-    }
 
-    .card button:hover {
-      opacity: 0.7;
-    }
-  </style>
-</head>
+@endsection
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $(".notify-btn").click(function() {
+        var productId = $(this).data("product-id");
+        var user_id = "{{ auth()->id() }}";
 
-<body>
-
-  <h1 style="text-align:center; font-weight:700">Products</h1>
-  <div style="display:flex">
-    @foreach($products as $product)
-      <div class="card">
-        <h2>{{ $product->name }}</h2>
-        <p class="price">${{ $product->price }}</p>
-        <p class="price">Qty {{ $product->quantity }}</p>
-        @if($product->quantity > 0)
-          <p><button>Add to Cart</button></p>
-        @else
-          <p><button style="background-color: black;">NotifyMe</button></p>
-        @endif
-      </div>
-    @endforeach
-  </div>
-
-</body>
-
-</html>
+        $.ajax({
+            url: "{{ route('notify.create') }}",
+            type: "POST",
+            data: {
+                product_id: productId,
+                user_id: user_id,
+                _token: "{{ csrf_token() }}"
+            },
+            success: function(response) {
+                alert("We will notify you");
+            },
+            error: function(xhr, error) {
+              console.log(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+@endpush

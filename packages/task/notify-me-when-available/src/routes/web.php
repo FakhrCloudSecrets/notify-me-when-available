@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Task\NotifyMeWhenAvailable\Http\Controllers\AuthController;
 use Task\NotifyMeWhenAvailable\Http\Controllers\ProductController;
 
 /*
@@ -13,5 +14,3 @@ use Task\NotifyMeWhenAvailable\Http\Controllers\ProductController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/product', [ProductController::class, 'index']);

@@ -15,4 +15,9 @@ class NotifyRepositories
     {
         return $this->model->create($data);
     }
+
+    public function getNotifiesByProductId($product_id)
+    {
+        return $this->model->where('product_id', $product_id)->get();
+    }
 }

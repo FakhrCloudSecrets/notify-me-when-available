@@ -15,6 +15,7 @@ class Notify extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
+        'user_id',
+        'product_id',
     ];
 }

@@ -4,7 +4,7 @@ namespace Task\NotifyMeWhenAvailable\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NotifyCreateRequest extends FormRequest
+class ProductUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class NotifyCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_id' => 'required|exists:products,id',
-            'user_id' => 'required|exists:users,id'
+            'product_id'    => 'required|exists:products,id',
+            'price'         => 'required|integer',
+            'quantity'      => 'required|integer'
         ];
     }
 }

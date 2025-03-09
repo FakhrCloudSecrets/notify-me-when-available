@@ -13,7 +13,3 @@ use Task\NotifyMeWhenAvailable\Http\Controllers\NotifyController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::group(['prefix' => 'notify'], function () {
-    Route::get('/create', [NotifyController::class, 'create']);
-});

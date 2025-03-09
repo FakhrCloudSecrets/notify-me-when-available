@@ -37,6 +37,11 @@ class ProductSeeder extends Seeder
                 'name' => 'Keyboard',
                 'quantity' => 0,
                 'price' => 50
+            ],
+            [
+                'name' => 'Mouse',
+                'quantity' => 4,
+                'price' => 30
             ]
         ];
 
