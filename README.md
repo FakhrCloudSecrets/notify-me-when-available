@@ -140,5 +140,5 @@ This project is open-source under the **MIT License**.
 
 ## Author
 
-Developed by **Mohamed Fakhr**. Reach out at [your-email@example.com](mailto\:your-email@example.com).
+Developed by **Mohamed Fakhr**.
 
